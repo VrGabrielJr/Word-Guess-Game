@@ -10,17 +10,10 @@
         <div class="container">
             <div class="jumbotron background-img">
                 <div class="container">
-                    <div class="row">
+                    <div class="row heading">
                         <div class="col-sm-12 col-md-12">
-                            <h1> Hanging with THE Simpsons</h1>
-                            <h2> Press Play To Begin!</h2>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12 col-md-12">
-                            <button id="play-button">
-                                PLAY
-                            </button>
+                            <h1> Guessing with The Simpsons</h1>
+                            <h2> Guess What Letter I'm Thinking Of</h2>
                         </div>
                     </div>
                 </div>
@@ -31,10 +24,12 @@
                         <div class="col-md-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Guess the Character</h3>
+                                    <h3 class="panel-title">Game Description</h3>
                                 </div>
                                 <div class="panel-body">
-                                    <p> This Character is: <span id="word-placeholder"> XXXXXX XXXXXXX</span></p>
+                                    <p> To play Press Any Key to Continue. You Have 10 Changes to
+                                        Guess the correct letter. If you fail to do so you lose.
+                                    </p>
                                 </div>
                           </div>
                         </div>
@@ -45,8 +40,8 @@
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Letters Guessed</h3>
                                 </div>
-                                <div class="panel-body">
-                                    <p>Letters: <span id="letters-guessed">[ ]</span></p>
+                                <div class="panel-body" id="letters-guessed">
+                                    Letters: [NONE]
                                 </div>
                             </div>
                         </div>
@@ -57,8 +52,8 @@
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Guesses Remaining</h3>
                                 </div>
-                                <div class="panel-body">
-                                    <p>Remaining: <span id="guess-remain">10</span> </p>
+                                <div class="panel-body" id="guess-remain">
+                                    Remaining: 10
                                 </div>
                             </div>
                         </div>
@@ -69,8 +64,8 @@
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Wins</h3>
                                 </div>
-                                <div class="panel-body">
-                                    <p>Wins: <span id="wins">0</span></p>
+                                <div class="panel-body" id="wins">
+                                    Wins: 0
                                 </div>
                             </div>
                         </div>
@@ -81,8 +76,8 @@
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Losses</h3>
                                 </div>
-                                <div class="panel-body">
-                                    <p>Losses: <span id="losses">0</span></p>
+                                <div class="panel-body" id="losses">
+                                    Losses: 0
                                 </div>
                             </div>
                         </div>

@@ -1,62 +1,65 @@
-//Variables for DOM Manipulation
-var playDOM = document.getElementById('play-button');
-var wordPlaceHolderDOM = document.getElementById('word-placeholder');
-var lettersGuessedDOM = document.getElementById('letters-guessed');
-var guessRemainDOM = document.getElementById('guess-remmain');
-var winsDOM = document.getElementById('wins');
-var lossesDOM = document.getElementById('losses');
-
-// Variables for Game
-var gameStart = false;
+// game variables
+var charList = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+var lettersGuessed = [];
+var charGuess = [];
 var wins = 0;
 var losses = 0;
-var guessLeft = 10;
-var charGuessed = '';
-var wordPicked = " ";
-var lettersGuessedArray = [];
-var incorrectLetterGuessed = [];
-var wordPlaceHolderArr = [];
-var characterList= ["Marge Simpson", "Homer Simpson", "Bart Simpson", "Maggie Simpson", "Lisa Simpson",
-                    "Moe Szyslak", "Mr Burns", "Nelson Muntz", "Ned Flanders", "Milhouse Van Houten", 
-                    "Principal Skinner", "Barney Gumbo"];
+var guessRemain = 10;
+var randomChoice = charList[Math.floor(Math.random() * charList.length)];
+console.log(randomChoice);
 
-
-function Game () {
-    var wins = 0;
-    var losses = 0;
-    var guessLeft = 10;
-    var wordPicked = " ";
-    var lettersGuessedArray = [];
-    var incorrectLetterGuessed = [];
-    var wordPlaceHolderArr = [];
-
-    wordPicked = characterList[Math.floor(Math.random() * characterList.length)];
-
-    for (var i = 0; i < wordPicked.length; i++)
+document.onkeyup = function (event) { 
+    if (event.keyCode >= 65 && event.keyCode <= 90)
     {
-        if (wordPicked[i] === ' ')
+         var guess = event.key;
+    }
+
+    for (var i = 0; i < charList.length; i++)
+    {
+        if (charList[i] != guess)
         {
-            wordPlaceHolderArr.push(' ');
-        }
-        else
-        {
-            wordPlaceHolderArr.push('x');
+            console.log(guess);
         }
     }
 
-    wordPlaceHolderDOM.textContent = wordPlaceHolderArr.join('');    
-}
+    if (guess === randomChoice)
+    {
+        wins++;
+        randomChoice = charList[Math.floor(Math.random() * charList.length)];
+        guessRemain = 10;
+        console.log(randomChoice);   
+        lettersGuessed.splice(guess);
+        alert("Hmmmmmm DONUTS!");
+    }
+    else
+    {
+        guessRemain--;
+        lettersGuessed.push(guess);
+    }
 
-function Guess(letter) {
+    if (guessRemain === 0) 
+    {
+        losses++;
+        randomChoice = charList[Math.floor(Math.random() * charList.length)];
+        guessRemain = 10;
+        console.log(randomChoice);
+        lettersGuessed.splice(guess); 
+        alert("DOH!");
+    }
+    
 
-}
+    var winsHTML = "<p> Wins: " + wins + "</p>";
+    var guessRemainHTML = "<p> Remaining: " + guessRemain + "</p>";
+    var lossesHTML = "<p> Losses: " + losses + "</p>";
+    var letterGuestHTML = "<p> Letters: [ " + lettersGuessed.join(' ') + " ]</p>";
+    
+    document.querySelector("#wins").innerHTML = winsHTML;
+    document.querySelector("#guess-remain").innerHTML = guessRemainHTML;
+    document.querySelector("#losses").innerHTML = lossesHTML;    
+    document.querySelector("#letters-guessed").innerHTML = letterGuestHTML;
+};
 
 
-document.onkeyup = function (event) {
-    letterGuessed = event.key;
-    Guess(charGuessed);
-    console.log(charGuessed);
-}
 
-playDOM.addEventListener('click', Game);
+
 
