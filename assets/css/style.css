@@ -28,8 +28,5 @@ body {
     color: black;;
     text-shadow: 2px 0 #F7D629,0 1px #F7D629,1px 0 #F7D629,0 -1px #F7D629;
     text-align: center;
-    position: absolute;
-    right: 500px;
-    top: 320px;
     
 }
