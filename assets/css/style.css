@@ -1,0 +1,25 @@
+body {
+    background-color: #F7D629;
+}
+
+.jumbotron {
+    height: 500px;
+}
+
+.background-img {
+    background-image: url("../images/jumbotronimg.jpg");
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+
+.right-image {
+    height: 580px;
+    background-image: url("../images/simpsonsideimg.jpg");
+    background-size: cover;
+    background-position-x: -135px; 
+}
+
+.panel-body,
+.panel-heading{
+    text-align: center;
+}
